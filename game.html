@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="GameHub Plus - 1.000 game browser yang dapat dimainkan langsung.">
+  <title>GameHub Plus — 1.000 Game Playable</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">🎮</span><span>GameHub <b>Plus</b></span></div>
+  <nav>
+    <a href="#games">Game</a><a href="#about">Tentang</a><a href="#help">Bantuan</a>
+  </nav>
+  <button id="themeBtn" class="icon-btn" type="button" aria-label="Ganti tema">☀️</button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">PLAY • SCORE • REPEAT</span>
+    <h1>1.000 game yang<br><span>bisa dimainkan langsung.</span></h1>
+    <p>Pilih game, tekan mulai, dan mainkan di browser. Tidak perlu instalasi, server, atau library eksternal.</p>
+    <a class="primary-btn" href="#games">🎮 Mulai Bermain</a>
+  </div>
+  <div class="hero-card">
+    <div class="orb">🎮</div>
+    <strong>1.000</strong><span>game playable</span>
+    <div class="mini-stats"><span>⚡ 20 engine</span><span>🏆 skor terbaik</span><span>📱 responsif</span></div>
+  </div>
+</section>
+
+<section id="games" class="section">
+  <div class="section-head">
+    <div><span class="eyebrow">GAME LIBRARY</span><h2>Pilih permainanmu</h2></div>
+    <span id="countLabel" class="muted">1.000 game</span>
+  </div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Cari game..." aria-label="Cari game">
+    <select id="genre" aria-label="Filter genre"><option value="all">Semua genre</option></select>
+    <select id="sort" aria-label="Urutkan">
+      <option value="id">Urutan 1–1000</option><option value="name">Nama A–Z</option>
+      <option value="genre">Genre</option><option value="best">Skor terbaik</option>
+    </select>
+  </div>
+  <div id="gameGrid" class="game-grid"></div>
+  <div class="pager"><button id="prev" type="button">← Sebelumnya</button><span id="pageInfo"></span><button id="next" type="button">Berikutnya →</button></div>
+</section>
+
+<section id="about" class="section info-grid">
+  <article class="info-card"><span>🎮</span><h3>Tentang GameHub</h3><p>GameHub Plus adalah kumpulan 1.000 permainan mini berbasis browser. Semua game dibuat agar dapat dimainkan tanpa instalasi tambahan.</p></article>
+  <article class="info-card"><span>🏆</span><h3>Skor & replay</h3><p>Setiap permainan punya skor, nyawa/waktu sesuai jenisnya, tombol mulai dan reset, serta penyimpanan skor terbaik selama halaman aktif.</p></article>
+</section>
+
+<section id="help" class="section help">
+  <div><span class="eyebrow">HELP CENTER</span><h2>Butuh bantuan?</h2></div>
+  <details open><summary>Bagaimana cara bermain?</summary><p>Pilih kartu game → tekan <b>Mainkan</b> → baca instruksi → tekan <b>Mulai Game</b>. Kontrol bisa memakai mouse, sentuhan, atau keyboard sesuai game.</p></details>
+  <details><summary>Apakah semua 1.000 game bisa dimainkan?</summary><p>Ya. Semua 1.000 entri terhubung ke salah satu engine permainan yang telah disiapkan. Judul dan variasinya berbeda, sementara engine menghasilkan pola permainan yang berbeda berdasarkan ID.</p></details>
+  <details><summary>Bagaimana mengulang game?</summary><p>Tekan <b>Reset</b> lalu <b>Mulai Game</b>. Timer, animasi, listener, dan arena lama dibersihkan sebelum sesi baru dibuat.</p></details>
+</section>
+</main>
+
+<footer><span>© 2026 GameHub Plus</span><span>1000 playable browser games</span></footer>
+
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button id="closeModal" class="close" type="button" aria-label="Tutup">×</button>
+    <div class="game-head"><div id="modalIcon" class="modal-icon">🎮</div><div><span id="modalGenre" class="eyebrow"></span><h2 id="modalTitle"></h2><p id="modalDesc" class="muted"></p></div></div>
+    <div class="scorebar"><span>⭐ Skor <b id="score">0</b></span><span>❤️ Nyawa <b id="lives">3</b></span><span>⏱️ Waktu <b id="time">30</b></span><span>🏆 Best <b id="best">0</b></span></div>
+    <div id="instruction" class="instruction"></div>
+    <div id="arena" class="arena" tabindex="0" aria-label="Area permainan"></div>
+    <div class="game-actions"><button id="start" class="primary-btn" type="button">▶ Mulai Game</button><button id="reset" class="secondary-btn" type="button">↻ Reset</button></div>
+    <div id="result" class="result" aria-live="polite"></div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
